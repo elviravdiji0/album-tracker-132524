@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import './App.css'
 import AlbumCard from './components/AlbumCard';
 import RegisterAlbum from './components/RegisterAlbum';
@@ -7,6 +7,8 @@ function App() {
   const [albums, setAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const albumCount = useMemo(() => albums.length, [albums])
 
   const addAlbum = useCallback((album) => {
     return setAlbums(data => [...data, {...album, id: Date.now()}])
@@ -28,6 +30,7 @@ function App() {
 
   return (
     <div>
+      <h1>Albums ({albumCount})</h1>
       <ul style={{
         display: "flex",
         flexDirection: "column",
