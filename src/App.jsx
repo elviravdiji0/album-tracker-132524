@@ -1,3 +1,5 @@
+// Student: Elvir Avdiji | ID: 132524.
+
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import './App.css'
 import AlbumCard from './components/AlbumCard';
